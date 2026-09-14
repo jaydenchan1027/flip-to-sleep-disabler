@@ -25,12 +25,10 @@ Compatible with **Android 12+ firmware that supports the
 `enable_flip_to_screen_off` DeviceConfig flag**. Android version alone does not
 guarantee support.
 
-**Works on OnePlus 13T running ColorOS 16.0.10.500** (user-reported confirmation
+**Works on OnePlus 13T running ColorOS 16.0.10.500 with SukiSU Ultra** (user-reported confirmation
 of the underlying setting). Module scripts passed syntax and simulated behavior
 checks; the complete module has not been independently tested on hardware.
 
-Requires KernelSU Manager with Action support and root access to input events.
-No Zygisk, system overlay, or SELinux policy changes are included.
 
 ## How it works
 
@@ -39,8 +37,6 @@ The module sets `enable_flip_to_screen_off` in the
 It saves your choice and reapplies it after boot. It does not disable all sensors
 or alter your regular screen timeout.
 
-Volume keys may also change the normal volume level. Firmware can overwrite
-DeviceConfig later; this module does not run a continuous enforcement loop.
 
 ## Disable or uninstall
 
