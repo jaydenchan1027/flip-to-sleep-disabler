@@ -3,4 +3,4 @@ name=Flip to Sleep Disabler
 version=1
 versionCode=5
 author=Jayden
-description=Compatible with Android 12+ firmware that supports flip-to-screen-off. Works on OnePlus 13T running ColorOS 16.0.10.500. Action: Volume Up enables; Volume Down disables. Choice persists across reboots. Developed by Jayden in collaboration with ChatGPT.
+description=Compatible with Android 12+ firmware that supports flip-to-screen-off. Works on OnePlus 13T running ColorOS 16.0.10.500. Action: Volume Up enables; Volume Down disables. Choice persists across reboots.

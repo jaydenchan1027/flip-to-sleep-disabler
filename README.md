@@ -1,7 +1,6 @@
 # Flip to Sleep Disabler
 
 A KernelSU module to disable Android's automatic face-down screen-off behavior.
-Developed by **Jayden** in collaboration with **ChatGPT**.
 
 ## Download and install
 
@@ -58,5 +57,5 @@ To remove the override manually, run in a root terminal:
 Module source is in [`module/`](./module/). The module ID remains
 `flip_screen_toggle` to allow upgrades from earlier development builds.
 
-Author: **Jayden**. **ChatGPT** assisted with scripting, documentation, and
+**ChatGPT** assisted with scripting, documentation, and
 simulated validation.

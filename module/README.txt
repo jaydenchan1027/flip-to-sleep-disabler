@@ -26,8 +26,6 @@ If Action reports inability to read volume keys, share its output; no broad
 SELinux changes are included. The normal Android volume level may also change.
 DeviceConfig changes by ColorOS later in a session are not continuously blocked.
 
-Author: Jayden
-Credits: Developed by Jayden in collaboration with ChatGPT.
 ChatGPT assisted with scripting, documentation, and simulated validation.
 Compatibility: Android 12+ firmware that honors the
 attention_manager_service / enable_flip_to_screen_off DeviceConfig flag.
