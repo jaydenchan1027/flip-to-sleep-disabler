@@ -1,4 +1,4 @@
-Flip to Sleep Disabler 1 — KernelSU
+Flip to Sleep Disabler 2 — KernelSU
 
 Install this ZIP in KernelSU Manager > Modules. During installation, press
 Volume Up (true) or Volume Down (false), then reboot to apply the chosen setting.
@@ -24,7 +24,13 @@ To manually return to the ROM default in a root terminal:
 
 If Action reports inability to read volume keys, share its output; no broad
 SELinux changes are included. The normal Android volume level may also change.
-DeviceConfig changes by ColorOS later in a session are not continuously blocked.
+v2: waits for boot completion, retries every 5 seconds during startup, then
+checks every 60 seconds and restores the saved choice if the firmware resets it.
+Checks do not hold a wake lock. Missing/invalid choice defaults to false.
+Android calls have 15-second timeouts. Action temporarily pauses enforcement.
+Logs: /data/adb/modules/flip_screen_toggle/boot.log (previous log retained).
+Disabling/removing the module stops the worker on its next check. Uninstall
+waits 35 seconds for in-flight calls before restoring the original setting.
 
 ChatGPT assisted with scripting, documentation, and simulated validation.
 Compatibility: Android 12+ firmware that honors the

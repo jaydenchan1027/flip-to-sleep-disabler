@@ -6,11 +6,13 @@ INSTALL=false
 umask 077
 WORK=$(mktemp -d /data/local/tmp/flip-toggle.XXXXXX) || exit 1
 PID=
+printf '%s\n' "$$" > "$MODDIR/action.pid"
 cleanup() {
   if [ -n "$PID" ]; then
     kill "$PID" 2>/dev/null
     wait "$PID" 2>/dev/null
   fi
+  rm -f "$MODDIR/action.pid"
   rm -rf "$WORK"
 }
 trap cleanup EXIT

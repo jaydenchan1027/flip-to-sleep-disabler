@@ -4,7 +4,7 @@ A KernelSU module to disable Android's automatic face-down screen-off behavior.
 
 ## Download and install
 
-[Download Flip-to-Sleep-Disabler-v1.zip](./Flip-to-Sleep-Disabler-v1.zip?raw=true)
+[Download Flip-to-Sleep-Disabler-v2.zip](./Flip-to-Sleep-Disabler-v2.zip?raw=true)
 
 1. Install the ZIP in KernelSU Manager under **Modules**.
 2. During installation, press **Volume Up** to enable flip-to-screen-off (`true`),
@@ -34,7 +34,18 @@ checks; the complete module has not been independently tested on hardware.
 
 The module sets `enable_flip_to_screen_off` in the
 `attention_manager_service` DeviceConfig namespace and verifies the value.
-It saves your choice and reapplies it after boot. It does not disable all sensors
+It saves your choice and reapplies it after boot. Version 2 waits for Android startup,
+retries every five seconds during initial startup, then checks every 60 seconds
+and restores the saved choice if firmware resets it. It does not hold a wake lock.
+A missing or invalid saved choice defaults to `false`. Enforcement pauses while
+Action is running. Framework calls have a 15-second timeout.
+
+Boot diagnostics: `/data/adb/modules/flip_screen_toggle/boot.log`.
+The worker stops on its next check when the module is disabled or removed.
+Uninstall waits 35 seconds for in-flight calls before restoring the original flag.
+
+The boot fix passed simulated reset, failed-write retry, saved-choice and disable
+tests; device confirmation is still needed. It does not disable all sensors
 or alter your regular screen timeout.
 
 
